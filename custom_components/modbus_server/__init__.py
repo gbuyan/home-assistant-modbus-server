@@ -32,8 +32,7 @@ def setup(hass: HomeAssistant, config):
     async def start_modbus_server(event):
         # Запустите сервер Modbus
         _LOGGER.error("Starting Modbus server")
-        loop = asyncio.get_event_loop()
-        server = await StartAsyncTcpServer(context, framer=ModbusRtuFramer, address=(host, port), loop=loop, custom_functions=[handle_modbus_event])
+        server = await StartAsyncTcpServer(context, framer=ModbusRtuFramer, address=(host, port), custom_functions=[handle_modbus_event])
 
     async def stop_modbus_server(event):
         # Остановите сервер Modbus
