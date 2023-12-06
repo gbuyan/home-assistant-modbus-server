@@ -5,6 +5,6 @@
     "iot_class": "local_push",
     "dependencies": [],
     "codeowners": ["@gbuyan"],
-    "requirements": ["pymodbus"],
-    "version": "0.0.9"
+    "requirements": ["pymodbus==3.5.4"],
+    "version": "0.0.10"
   }

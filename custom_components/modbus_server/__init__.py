@@ -1,4 +1,4 @@
-from pymodbus.server import StartTcpServer, ServerStop
+from pymodbus.server import StartAsyncTcpServer, ServerStop
 from pymodbus.datastore import ModbusSequentialDataBlock, ModbusSlaveContext, ModbusServerContext
 from pymodbus.transaction import ModbusRtuFramer, ModbusAsciiFramer
 import asyncio
@@ -33,7 +33,7 @@ def setup(hass: HomeAssistant, config):
         # Запустите сервер Modbus
         _LOGGER.error("Starting Modbus server")
         loop = asyncio.get_event_loop()
-        server = await StartTcpServer(context, framer=ModbusRtuFramer, address=(host, port), loop=loop, custom_functions=[handle_modbus_event])
+        server = await StartAsyncTcpServer(context, framer=ModbusRtuFramer, address=(host, port), loop=loop, custom_functions=[handle_modbus_event])
 
     async def stop_modbus_server(event):
         # Остановите сервер Modbus
@@ -51,7 +51,5 @@ def setup(hass: HomeAssistant, config):
         _LOGGER.error(f"Received Modbus request: {request}")
 
     # Добавьте обработчик событий в контекст сервера
-    
-    context.set_handler(handle_modbus_event)
 
     return True
