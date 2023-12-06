@@ -1,0 +1,8 @@
+{
+    "domain": "modbus_server",
+    "name": "Modbus Server",
+    "documentation": "https://github.com/gbuyan/home-assistant-modbus-server",
+    "dependencies": [],
+    "codeowners": ["@gbuyan"],
+    "requirements": ["pymodbus"]
+  }
