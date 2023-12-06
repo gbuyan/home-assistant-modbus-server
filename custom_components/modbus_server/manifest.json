@@ -2,7 +2,9 @@
     "domain": "modbus_server",
     "name": "Modbus Server",
     "documentation": "https://github.com/gbuyan/home-assistant-modbus-server",
+    "iot_class": "local_push",
     "dependencies": [],
     "codeowners": ["@gbuyan"],
-    "requirements": ["pymodbus"]
+    "requirements": ["pymodbus"],
+    "version": "0.0.9"
   }
